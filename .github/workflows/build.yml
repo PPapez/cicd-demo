@@ -16,5 +16,5 @@ jobs:
     - name: Test building with EESSI-extend
       run: |
         module load EESSI-extend
-        eb --software-commit=$GITHUB_SHA easybuild/build.eb      
+        eb --software-commit=$GITHUB_SHA .github/workflows/easybuild/build.eb      
       shell: bash
