@@ -1,4 +1,4 @@
-name: Build with EESSI
+name: Build with EESSI-extend
 
 on: [push, pull_request]
 
@@ -13,12 +13,8 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - uses: eessi/github-action-eessi@v3
-    - name: Test building with EESSI
+    - name: Test building with EESSI-extend
       run: |
-        module load CMake HDF5 buildenv
-        mkdir build
-        cd build 
-        cmake ..
-        make -j
-        ctest --output-on-failure --verbose
+        module load EESSI-extend
+        eb --software-commit=$GITHUB_SHA easybuild/build.eb      
       shell: bash
